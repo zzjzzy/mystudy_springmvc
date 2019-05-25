@@ -16,10 +16,22 @@
 		
 	<context:component-scan base-package="com.itcast.controller"></context:component-scan>
 
-	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+	<mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+	
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<!-- 转换器 -->
+		<property name="converters">
+			<list>
+				<!-- 日期类型转换，需要自己写类来实现自定义转换 -->
+				<bean class="com.itcast.controller.converter.CustomDateConverter"/>
+			</list>
+		</property>
+	</bean>
+
+	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
 
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
-
+ -->
 
 
 <!-- 	<bean name="/queryItems_test.action" class="com.itcast.controller.ItemsController1" />
@@ -33,5 +45,7 @@
 	<!-- 视图解析器：解析jsp解析，默认使用jstl标签，classpath下的得有jstl的包-->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
 	</bean>
 </beans>
