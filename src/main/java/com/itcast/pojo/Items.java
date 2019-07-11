@@ -2,9 +2,12 @@ package com.itcast.pojo;
 
 import java.util.Date;
 
+import javax.validation.constraints.Size;
+
 public class Items {
     private Integer id;
 
+    @Size(min=1, max=5, message="名字长度不对")
     private String name;
 
     private Float price;

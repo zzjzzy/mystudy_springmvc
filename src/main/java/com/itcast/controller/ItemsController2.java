@@ -6,15 +6,14 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
 
 import com.itcast.pojo.Items;
 
 //注解方式开发Controller
 
-@org.springframework.stereotype.Controller
+@Controller
 public class ItemsController2{
 	
 //		//@RequestMapping实现 对queryItems方法和url进行映射，一个方法对应一个url

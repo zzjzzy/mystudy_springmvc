@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.itcast.mapper.ItemsMapper;
 import com.itcast.mapper.ItemsMapperCustom;
@@ -12,6 +13,7 @@ import com.itcast.pojo.ItemsCustom;
 import com.itcast.pojo.ItemsQueryVo;
 import com.itcast.service.ItemsService;
 
+@Service
 public class ItemsServiceImpl implements ItemsService {
 
 	@Autowired
